@@ -18,7 +18,21 @@
 #include <iostream>
 
 template <typename ValueType> struct Factorial {
-  /* EXERCISE */
+  using value_type = ValueType;
+  
+  Factorial(Kokkos::View<value_type *> view) : m_view(view) {}
+  
+  // EXERCISE: Implement the init method
+  // void init(...) {...}
+  
+  // EXERCISE: Implement the join method
+  // void join(...) {...}
+
+  // EXERCISE: Implement the operator() method
+  // void operator()(...) const {...}
+
+private:
+  Kokkos::View<value_type *> m_view;
 };
 
 int main(int argc, char *argv[]) {
@@ -27,7 +41,7 @@ int main(int argc, char *argv[]) {
     int n = 10;
     Kokkos::View<double *> view("view", n);
 
-    Kokkos::parallel_scan(n, Factorial{view});
+    // EXERCISE: Call Kokkos::parallel_scan with the Factorial functor
 
     auto host_view =
         Kokkos::create_mirror_view_and_copy(Kokkos::HostSpace{}, view);
