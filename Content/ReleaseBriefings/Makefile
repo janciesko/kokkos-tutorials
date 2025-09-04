@@ -38,7 +38,7 @@ release-46:
 	pdflatex release-46.tex
 
 release-47:
-	pdflatex release-47.tex
+	latexmk release-47
 
 clean:
 	rm -r *.aux *.log *.nav *.out *.snm *.toc *.vrb
